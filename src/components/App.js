@@ -12,6 +12,14 @@ function App() {
     const [selectedCategory, setSelectedCategory] = useState("All");
     const [tasks, setTasks] = useState(TASKS);
 
+    const tasksFiltered = tasks.filter((task) => {
+        if (selectedCategory === "All") return true;
+
+        return task.category === selectedCategory;
+    });
+    
+    
+    
     function handleCategoryChange(category) {
         // Switch the selected category to the one of the button the user clicked
         setSelectedCategory(category);
@@ -39,7 +47,8 @@ function App() {
 
             <NewTaskForm categories={CATEGORIES} onTaskFormSubmit={handleTaskFormSubmit} />
 
-            <TaskList tasks={tasks} selectedCategory={selectedCategory} onDeleteBtnClick={handleDeleteBtnClick} />
+            {/* <TaskList tasks={tasks} selectedCategory={selectedCategory} onDeleteBtnClick={handleDeleteBtnClick} /> */}
+            <TaskList tasks={tasksFiltered} onDeleteBtnClick={handleDeleteBtnClick} />
         </div>
     );
 }

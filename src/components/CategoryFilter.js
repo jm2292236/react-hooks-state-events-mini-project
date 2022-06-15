@@ -8,7 +8,7 @@ function CategoryFilter({ categories, selectedCategory, onCategoryChange }) {
                     key={index}
                     className={selectedCategory === category ? "selected" : ""}
                     onClick={handleButtonClick}>
-                        {category}
+                    {category}
                 </button>
         );
     });
@@ -24,16 +24,6 @@ function CategoryFilter({ categories, selectedCategory, onCategoryChange }) {
             <h5>Category filters</h5>
             {/* render <button> elements for each category here */}
             {categoriesList}
-            {/* {
-                categories.map((category, index) =>
-                            <button 
-                                key={index}
-                                className={selectedCategory === category ? "selected" : ""}
-                                onClick={handleButtonClick}>
-                                    {category}
-                            </button>
-                )
-            } */}
         </div>
     );
 }

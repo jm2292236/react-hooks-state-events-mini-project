@@ -2,17 +2,23 @@ import React from "react";
 import Task from "./Task";
 import { v4 as uuid } from "uuid";
 
-function TaskList( { tasks, selectedCategory, onDeleteBtnClick }) {
-    const tasksFiltered = tasks.filter((task) => {
-        if (selectedCategory === "All") return true;
+// function TaskList( { tasks, selectedCategory, onDeleteBtnClick }) {
+function TaskList( { tasks, onDeleteBtnClick }) {
+    // const tasksFiltered = tasks.filter((task) => {
+    //     if (selectedCategory === "All") return true;
 
-        return task.category === selectedCategory;
-    });
+    //     return task.category === selectedCategory;
+    // });
     
     
     
+    // // Make a list of component calls to the Task component for each task
+    // const taskToDisplay = tasksFiltered.map(
+    //     task => <Task key={uuid()} category={task.category} text={task.text} onDeleteBtnClick={handleDeleteBtnClick} />
+    // );
+
     // Make a list of component calls to the Task component for each task
-    const taskToDisplay = tasksFiltered.map(
+    const taskToDisplay = tasks.map(
         task => <Task key={uuid()} category={task.category} text={task.text} onDeleteBtnClick={handleDeleteBtnClick} />
     );
 
